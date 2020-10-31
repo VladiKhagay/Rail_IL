@@ -4,7 +4,10 @@ import train.MyComparators;
 import train.Station;
 import train.TrainLine;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> 88c0561574968be6c8c6b49cf2d5c9e17b6019cd
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -22,11 +25,19 @@ public class RailApp {
     private static final String MAIN_OP_1 = "Enter new train line.";
     private static final String MAIN_OP_2 = "Print all train lines.";
     private static final String MAIN_OP_3 = "Plan your journey.";
+<<<<<<< HEAD
     private static final String ENTER_DEPARTURE_STATION = "Please enter departure station : ";
     private static final String ENTER_MID_STATION = "Enter mid station : *('done' to FINISH)*";
     private static final String ENTER_DESTINATION_STATION = "Please enter destination station : ";
     private static final String TIME = "Please enter arrival time : *(HH:MM 24H FORMAT)*";
     private static final String RIDE_TIME = "Please enter departure time : *(HH:MM 24H FORMAT)*";
+=======
+    private static final String ENTER_DEPARTURE_STATION = "Please enter deprture station : ";
+    private static final String ENTER_MID_STATION = "Enter mid station : *('done' to FINISH)*";
+    private static final String ENTER_DESTINATION_STATION = "Please enter destination station : ";
+    private static final String TIME = "Pleae enter arrival time : *(HH:MM 24H FORMAT)*";
+    private static final String RIDE_TIME = "Pleae enter departure time : *(HH:MM 24H FORMAT)*";
+>>>>>>> 88c0561574968be6c8c6b49cf2d5c9e17b6019cd
 
     private static RailApp instance = null; /* Instance of this class */
     private TreeSet<TrainLine> mLines; /* Contains all the information entered by the system operator */
@@ -69,12 +80,15 @@ public class RailApp {
                     break;
                 case 9:
                     done = true;
+<<<<<<< HEAD
                     try {
                         System.in.close();
                     } catch (IOException e) {
                         // do nothing
                         System.out.println("scanner close failed");
                     }
+=======
+>>>>>>> 88c0561574968be6c8c6b49cf2d5c9e17b6019cd
                     break;
             }
 
@@ -166,10 +180,14 @@ public class RailApp {
      * system
      */
     private void findUserRide() {
+<<<<<<< HEAD
     	if (mLines == null ||mLines.isEmpty()) {
     		System.out.println("No lines registered in system");
     		return;
     	}
+=======
+
+>>>>>>> 88c0561574968be6c8c6b49cf2d5c9e17b6019cd
         Station from, to;
 
         from = new Station(Utils.readStringFromUSer(ENTER_DEPARTURE_STATION), Utils.readTimeFromUser(RIDE_TIME));
