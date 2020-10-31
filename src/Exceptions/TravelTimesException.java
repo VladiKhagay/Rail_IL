@@ -1,11 +1,11 @@
-package exceptions;
+package Exceptions;
 
 public class TravelTimesException extends Exception{
 
 	private static final long serialVersionUID = 1L;
 	
 	public TravelTimesException() {
-		this ("Arrival Time can not be before departure time!");
+		this ("Arrival Time canot be before departure time!");
 	}
 	
 	public TravelTimesException(String message) {
