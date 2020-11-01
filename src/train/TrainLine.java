@@ -1,10 +1,17 @@
 package train;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class TrainLine {
+
+public class TrainLine implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TreeSet<Station> stations;
 
 	public TrainLine(TreeSet<Station> stations) {

@@ -1,8 +1,20 @@
 package app;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.TreeSet;
+
+import train.MyComparators;
+import train.TrainLine;
 
 /**
  * The Utils class provides a number of basic methods for receiving input from the user
@@ -19,6 +31,8 @@ public abstract class Utils {
     private static final int MIN_HOURS = 0;
     private static final int MAX_MINUTES = 59;
     private static final int MIN_MINUTES = 0;
+    
+    private static final String F_NAME = "1.txt";
 
     /**
      * @param s
@@ -47,7 +61,7 @@ public abstract class Utils {
     @SuppressWarnings("resource")
     public static String readStringFromUSer(String instruction) {
         if (!instruction.isEmpty()) {
-            System.out.println(instruction);    /* prints the instruction */
+            System.out.print("\n" + instruction);    /* prints the instruction */
         }
 
         Scanner scanner = new Scanner(System.in);    /* Scanner for reading the input from user */
@@ -77,7 +91,7 @@ public abstract class Utils {
     public static LocalTime readTimeFromUser(String instruction) {
 
         if (!instruction.isEmpty()) {
-            System.out.print(instruction + " \n");    /* prints the instruction */
+            System.out.print("\n" + instruction);    /* prints the instruction */
         }
         LocalTime lt;
         Scanner scanner = new Scanner(System.in);
@@ -152,6 +166,31 @@ public abstract class Utils {
         }
 
         return true;
+    }
+    
+    public static void saveToFile (TreeSet<TrainLine> ts) throws FileNotFoundException, IOException {
+		try (ObjectOutputStream o = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(F_NAME)))) {
+			for (TrainLine t: ts) {
+				o.writeObject(t);
+			}
+			System.out.println("data saved to file successfully");
+		}
+    }
+    
+    public static TreeSet<TrainLine> readFromFile() throws ClassNotFoundException, IOException {
+    	TreeSet<TrainLine> ts = new TreeSet<TrainLine>(new MyComparators.TrainLineComparator());
+    	
+    	BufferedInputStream buf;
+    	try (ObjectInputStream i = new ObjectInputStream(buf = new BufferedInputStream(new FileInputStream(F_NAME)))) {
+			while(buf.available() > 0) {
+				
+				TrainLine t = (TrainLine)i.readObject();
+				
+				ts.add(t);
+
+			}
+		}
+    	return ts;
     }
 
 }

@@ -1,9 +1,14 @@
 package train;
 
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalTime;
 
-public class Station {
+public class Station implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private LocalTime mTime;
 
