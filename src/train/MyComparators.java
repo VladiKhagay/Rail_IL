@@ -1,5 +1,6 @@
 package train;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
@@ -15,7 +16,12 @@ public abstract class MyComparators {
 	 * This class contains a comparator that compares two "station" classes. 
 	 * The comparison is made in relation to the time of each station
 	 */
-	public static class StationComparator implements Comparator<Station> {
+	public static class StationComparator implements Comparator<Station> , Serializable{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public int compare(Station s1, Station s2) {
@@ -29,7 +35,12 @@ public abstract class MyComparators {
 	 * This class contains a comparator that compares two "train line" classes. 
 	 * The comparison is made in relation to the departure time of each line
 	 */
-	public static class TrainLineComparator implements Comparator<TrainLine> {
+	public static class TrainLineComparator implements Comparator<TrainLine> , Serializable{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public int compare(TrainLine tl1, TrainLine tl2) {
