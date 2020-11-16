@@ -1,10 +1,15 @@
+/**
+ * 
+ * @author Omri Hadad & Vladi Khagay
+ * 
+ */
 package train;
 
 import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalTime;
 
-public class Station implements Serializable{
+public class Station implements Serializable {
 	/**
 	 * 
 	 */
@@ -40,19 +45,18 @@ public class Station implements Serializable{
 		return mTime;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		Station other = (Station) obj;
-		
+
 		return this.name.equalsIgnoreCase(other.getName());
 	}
 
 	@Override
 	public String toString() {
-		return name + ", " + mTime;
+
+		String str = String.format("%-30s %-30s", name, mTime.toString());
+		return str;
 	}
-	
-	
 
 }

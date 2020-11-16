@@ -15,7 +15,7 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		RailApp instance = RailApp.getInstance();
-		instance.start();
+		instance.workerStart();
 	}
 
 }

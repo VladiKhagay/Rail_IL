@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Omri Hadad & Vladi Khagay
+ * 
+ */
 package exceptions;
 
 public class TimeFormatException extends Exception{

@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Omri Hadad & Vladi Khagay
+ * 
+ */
 package train;
 
 import java.io.Serializable;
@@ -5,9 +10,8 @@ import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+public class TrainLine implements Serializable {
 
-public class TrainLine implements Serializable{
-	
 	/**
 	 * 
 	 */
@@ -56,9 +60,49 @@ public class TrainLine implements Serializable{
 
 	@Override
 	public String toString() {
-		String str = stations.toString();
+		String string = null;
+		int counter = 0;
+		Iterator<Station> it = stations.iterator();
+		while (it.hasNext()) {
+			if (string == null) {
+				string = it.next().toString() + "\n";
+				counter++;
+			}
 
-		return str;
+			if (counter == stations.size() - 1) {
+				string = string + "   " + it.next().toString();
+			} else {
+
+				string = string + "\t" + it.next().toString() + "\n";
+				counter++;
+			}
+
+		}
+
+		return string;
+	}
+
+	public String toStringHtml() {
+		String string = null;
+		int counter = 0;
+		Iterator<Station> it = stations.iterator();
+		while (it.hasNext()) {
+			if (string == null) {
+				string = it.next().toString() + "<br>\n";
+				counter++;
+			}
+
+			if (counter == stations.size() - 1) {
+				string = string + "   " + it.next().toString() + "<br>\n";
+			} else {
+
+				string = string + "\t" + it.next().toString() + "<br>\n";
+				counter++;
+			}
+
+		}
+
+		return string;
 	}
 
 	public TrainLine getSubLine(Station from, Station to) {
@@ -109,5 +153,5 @@ public class TrainLine implements Serializable{
 		return null;
 
 	}
-	
+
 }

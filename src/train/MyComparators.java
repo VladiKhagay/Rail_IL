@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Omri Hadad & Vladi Khagay
+ * 
+ */
 package train;
 
 import java.io.Serializable;
